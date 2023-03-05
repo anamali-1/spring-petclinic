@@ -37,7 +37,7 @@ jobs:
         docker_password: ${{ secrets.DOCKERHUB_PASSWORD }}
         checkout: 'false'
         image_tag: spring-petclinic
-        repo_name: anamali/spring-petclinic
+        repo_name: spring-petclinic
     - run: |
         echo "Image Created:  ${{ env.image }}"
         echo "Tag Created: ${{ env.tag }}"
