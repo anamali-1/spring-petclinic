@@ -30,4 +30,8 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Create Docker image
-      run: docker build . --file Dockerfile --tag spring-petclinic-$(date +%s)
+      uses: jerray/publish-docker-action@master
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        repository: anamali/spring-petclinic
