@@ -30,9 +30,4 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Create Docker image
-      if: success()
-      uses: manusa/actions-publish-docker@v1.1.2
-      with:
-        name: spring-petclinic
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+      run: docker build . --file Dockerfile --tag spring-petclinic-$(date +%s)
