@@ -30,15 +30,9 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Create Docker image
-      id: build
-      uses: cloudposse/github-action-docker-build-push@main
+      if: success()
+      uses: manusa/actions-publish-docker@v1.1.2
       with:
-          registry: registry.hub.docker.com
-          organization: "${{ github.event.repository.owner.login }}"
-          repository: anamali/spring-petclinic
-          login: "${{ secrets.DOCKERHUB_USERNAME }}"
-          password: "${{ secrets.DOCKERHUB_PASSWORD }}"
-
-    outputs:
-      image: ${{ steps.build.outputs.image }}
-      tag: ${{ steps.build.outputs.tag }}
+        name: spring-petclinic
+        username: ${{ secrets.DOCKER_HUB_USER }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
