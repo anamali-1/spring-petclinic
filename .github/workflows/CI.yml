@@ -43,4 +43,12 @@ jobs:
     needs: build
 
     steps:
-    - run:  echo test
+    - name: Run Docker image
+      uses: c-schicho/DockerRun-Action@v1
+      with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          registry: docker.io
+          image: anamali/spring-petclinic:${{ github.run_number }}
+          options: -p 8080:8080
+          run: curl -v http://localhost:8080
