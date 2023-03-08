@@ -52,4 +52,4 @@ jobs:
     - name: Run Docker image
       run:  |  
           docker pull anamali/spring-petclinic:${{ github.run_number }}
-          docker run -p 8080:8080 anamali/spring-petclinic:${{ github.run_number }}
+          docker run anamali/spring-petclinic:${{ github.run_number }}
