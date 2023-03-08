@@ -50,5 +50,5 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
           registry: docker.io
           image: anamali/spring-petclinic:${{ github.run_number }}
-          options: -p 8080:8080
+          #options: -p 8080:8080
           run: curl -v http://localhost:8080
