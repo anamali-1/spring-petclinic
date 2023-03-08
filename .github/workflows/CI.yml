@@ -37,10 +37,10 @@ jobs:
         repository: anamali/spring-petclinic
         tags: ${{ github.run_number }}
         
-jobs:
   deploy:
 
     runs-on: ubuntu-latest
+    needs: build
 
     steps:
     - run:  echo test
