@@ -36,3 +36,11 @@ jobs:
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: anamali/spring-petclinic
         tags: ${{ github.run_number }}
+        
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - run:  echo test
