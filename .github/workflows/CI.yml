@@ -4,10 +4,10 @@
 name: Build
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  #push:
+    #branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
   workflow_dispatch:
 
 
@@ -30,7 +30,7 @@ jobs:
       run: mvn -B package --file pom.xml
       
     - name: Create Docker image
-      uses: jerray/publish-docker-action@master
+      uses: jerray/publish-docker-action@v1.0.5
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
