@@ -53,5 +53,5 @@ jobs:
       run:  |  
           docker pull anamali/spring-petclinic:${{ github.run_number }}
           docker run --name myapp anamali/spring-petclinic:${{ github.run_number }}
-          sleep 5s
+          curl -v http://localhost:8080
           docker stop myapp
