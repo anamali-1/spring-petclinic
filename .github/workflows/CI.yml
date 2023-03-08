@@ -53,4 +53,3 @@ jobs:
       run:  |  
           docker pull anamali/spring-petclinic:${{ github.run_number }}
           docker run --name myapp anamali/spring-petclinic:${{ github.run_number }}
-          docker stop myapp
