@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    inputs:
+      imagetag:
+        description: 'Enter container tag'
+        required: true
+              
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Log into Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          
+    - name: Run Docker image
+      run:  |  
+          docker pull anamali/spring-petclinic:${{ inputs.imagetag }}
+          docker run --name myapp anamali/spring-petclinic:${{ inputs.imagetag }}
