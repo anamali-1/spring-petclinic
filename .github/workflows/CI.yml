@@ -48,13 +48,13 @@ jobs:
     needs: build
 
     steps:
-    - name: Login to Docker Hub
-      uses: jerray/publish-docker-action@v1.0.5
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        repository: anamali/spring-petclinic
-        tags: ${{ github.run_number }}
+    #- name: Login to Docker Hub
+      #uses: jerray/publish-docker-action@v1.0.5
+      #with:
+        #username: ${{ secrets.DOCKERHUB_USERNAME }}
+        #password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        #repository: anamali/spring-petclinic
+        #tags: ${{ github.run_number }}
           
     - name: Run Docker image
       run:  |  
