@@ -53,7 +53,6 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        ecr: false
         #repository: anamali/spring-petclinic
         #tags: ${{ github.run_number }}
           
