@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
 
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     
@@ -22,7 +22,7 @@ jobs:
           
     - name: Run Docker image
       run:  |  
-         docker version
-         docker -v
-          #docker pull anamali/spring-petclinic:${{ inputs.imagetag }}
-          #docker run --name myapp -d anamali/spring-petclinic:${{ inputs.imagetag }}
+         #docker version
+         #docker -v
+          docker pull anamali/spring-petclinic:${{ inputs.imagetag }}
+          docker run --name myapp -d anamali/spring-petclinic:${{ inputs.imagetag }}
