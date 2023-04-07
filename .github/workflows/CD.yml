@@ -17,14 +17,15 @@ jobs:
     - name: Switch user
       run: sudo su - vagrant
     
-    - name: Login to Docker Hub
-      uses: jerray/publish-docker-action@v1.0.5
+    - name: Login to Docker Hub & Run image
+      uses: c-schicho/DockerRun-Action@v1
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        repository: anamali/spring-petclinic
+        registry: docker.io
+        image: ${{ inputs.imagetag }}
           
-    - name: Run Docker image
-      run:  |  
-          docker pull anamali/spring-petclinic:${{ inputs.imagetag }}
-          docker run --name myapp -d anamali/spring-petclinic:${{ inputs.imagetag }}
+    #- name: Run Docker image
+      #run:  |  
+          #docker pull anamali/spring-petclinic:${{ inputs.imagetag }}
+          #docker run --name myapp -d anamali/spring-petclinic:${{ inputs.imagetag }}
