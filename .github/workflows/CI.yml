@@ -42,18 +42,18 @@ jobs:
         repository: anamali/spring-petclinic
         tags: ${{ github.run_number }}
         
-  #deploy:
+  deploy:
 
-    #runs-on: self-hosted
-    #needs: build
+    runs-on: self-hosted
+    needs: build
 
-    #steps:
-    #- name: Login to Docker Hub
-      #uses: docker/login-action@v2.1.0
-      #with:
-        #username: ${{ secrets.DOCKERHUB_USERNAME }}
-        #password: ${{ secrets.DOCKERHUB_PASSWORD }}
-        #ecr: false
+    steps:
+    - name: Login to Docker Hub
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        ecr: false
         #repository: anamali/spring-petclinic
         #tags: ${{ github.run_number }}
           
