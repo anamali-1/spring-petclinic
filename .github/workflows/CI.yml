@@ -54,6 +54,7 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_PASSWORD }}
         repository: anamali/spring-petclinic
+        tags: ${{ github.run_number }}
           
     - name: Run Docker image
       run:  |  
